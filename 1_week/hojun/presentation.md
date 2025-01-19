@@ -306,22 +306,9 @@ ros2 service call /spawn turtlesim/srv/Spawn \
 <img src="./img/service_call_spawn_a.png" style="width: 300;"></img>
 </p>
 
-### 6. service echo
-```bash
-ros2 service echo <service_name | service_type> <arguments>
-```
-```bash
-ros2 service echo <service_name | service_type> <arguments>
-```
-
-<p align="center">
-<img src="./img" style="width: 500;"></img>
-</p>
-
 ### Summary
-1. a
-2. b
-3. c
+1. Nodes can communicate using services in ROS 2.
+2. **Unlike a topic** - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response.
 
 ## ✅ Parameters
 
