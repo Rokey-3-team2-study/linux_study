@@ -68,6 +68,159 @@ ros2 node info /my_turtle
 ## ✅ Topic
 <img src="./img/Topic-MultiplePublisherandMultipleSubscriber.gif"></img>
 
+### 1. rqt_graph
+```bash
+rqt_graph
+```
+<p align="center">
+<img src="./img/rqt_graph.png" style="width: 500;"></img>
+</p>
+
+- **node** : /teleop_turtle, /turtlesim
+- **topic** : /turtle1/cmd_vel
+- /teleop_turtle(**publish**) -> message -> /turtle1/cmd_vel -> message -> /turtlesim(**subscribe**)
+
+### 2. topic list
+```bash
+ros2 topic list
+```
+
+<p align="center">
+<img src="./img/topic_list.png" style="width: 500;"></img>
+</p>
+
+```bash
+ros2 topic list -t
+```
+<p align="center">
+<img src="./img/topic_list-t.png" style="width: 500;"></img>
+</p>
+
+### 3. topic echo
+```bash
+ros2 topic echo <topic name>
+```
+```bash
+ros2 topic echo /turtle1/cmd_vel
+```
+
+<p align="center">
+<img src="./img/topic_echo_turtlesim.png" style="width: 300;"></img>
+<img src="./img/topic_echo_terminal.png" style="width: 500;"></img>
+</p>
+
+### 4. topic info
+```bash
+ros2 topic info <topic name>
+```
+```bash
+ros2 topic info /turtle1/cmd_vel
+```
+
+<p align="center">
+<img src="./img/topic_info.png" style="width: 500;"></img>
+</p>
+
+### 5. interface show
+```bash
+ros2 interface show <message type>
+```
+```bash
+ros2 interface show geometry_msgs/msg/Twist
+```
+
+<p align="center">
+<img src="./img/interface_show.png" style="width: 500;"></img>
+</p>
+
+- message structure
+
+### 6. topic pub
+```bash
+ros2 topic pub <topic_name> <msg_type> '<args>'
+```
+- We can publish message directly from command line
+
+```bash
+ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \
+"{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+```
+
+<p align="center">
+<img src="./img/topic_pub_turtlesim.png" style="width: 300;"></img>
+<img src="./img/topic_pub_terminal.png" style="width: 500;"></img>
+<img src="./img/topic_pub_rqt_graph.png" style="width: 500;"></img>
+</p>
+
+- **/_ros2cli_21956** publish message to /turtle1/cmd_vel
+
+```bash
+ros2 topic echo /turtle1/pose
+```
+
+<p align="center">
+<img src="./img/topic_pub_pose_rqt_graph.png" style="width: 500;"></img>
+</p>
+
+- topic **/turtle1/pose** receive and send pose information of turtle1
+
+### 7. topic hz
+```bash
+ros2 topic hz <topic name>
+```
+```bash
+ros2 topic hz /turtle1/pose
+```
+
+<p align="center">
+<img src="./img/topic_hz_terminal.png" style="width: 500;"></img>
+</p>
+
+- average rate : number of messages per second
+
+```bash
+ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist \
+"{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+```
+```bash
+ros2 topic hz /turtle1/cmd_vel
+```
+
+<p align="center">
+<img src="./img/topic_pub_rate_1_terminal.png" style="width: 500;"></img>
+<img src="./img/topic_hz_rate_1.png" style="width: 500;"></img>
+</p>
+
+### 8. topic bw
+```bash
+ros2 topic bw <topic name>
+```
+```bash
+ros2 topic bw /turtle1/pose
+```
+
+<p align="center">
+<img src="./img/topic_bw_terminal.png" style="width: 500;"></img>
+</p>
+
+### 9. topic find
+```bash
+ros2 topic find <topic_type>
+```
+```bash
+ros2 topic find geometry_msgs/msg/Twist
+```
+```bash
+ros2 topic find turtlesim/msg/Pose
+```
+
+<p align="center">
+<img src="./img/topic_find_terminal.png" style="width: 500;"></img>
+</p>
+
+### Summary
+
+
 ## ✅ Services
 <img src="./img/Service-MultipleServiceClient.gif"></img>
 
