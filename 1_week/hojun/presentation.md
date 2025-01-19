@@ -312,6 +312,103 @@ ros2 service call /spawn turtlesim/srv/Spawn \
 
 ## ✅ Parameters
 
+### 1. param list
+```bash
+ros2 param list
+```
+
+<p align="center">
+<img src="./img/param_list.png" style="width: 500;"></img>
+</p>
+
+### 2. param get
+```bash
+ros2 param get <node_name> <parameter_name>
+```
+```bash
+ros2 param get /turtlesim background_g
+ros2 param get /turtlesim background_r
+ros2 param get /turtlesim background_b
+```
+
+<p align="center">
+<img src="./img/param_get.png" style="width: 500;"></img>
+</p>
+
+### 3. param set
+```bash
+ros2 param set <node_name> <parameter_name> <value>
+```
+```bash
+ros2 param set /turtlesim background_r 150
+```
+
+<p align="center">
+<img src="./img/param_set.png" style="width: 500;"></img>
+<img src="./img/param_set_turtlesim.png" style="width: 300;"></img>
+</p>
+
+### 4. param dump
+```bash
+ros2 param dump <node_name>
+```
+```bash
+ros2 param dump /turtlesim > turtlesim.yaml
+```
+- try it in working directory
+
+<p align="center">
+<img src="./img/param_dump.png" style="width: 500;"></img>
+</p>
+
+```yaml
+/turtlesim:
+  ros__parameters:
+    background_b: 255
+    background_g: 86
+    background_r: 150
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: 1000
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+    use_sim_time: false
+```
+
+### 5. param load
+```bash
+ros2 param load <node name> <parameter file>
+```
+```bash
+ros2 param load /turtlesim turtlesim.yaml
+```
+
+<p align="center">
+<img src="./img/param_load.png" style="width: 500;"></img>
+</p>
+
+- Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the “qos_overrides” parameters.
+
+### 6. Load parameter file on node startup
+```bash
+ros2 run <package name> <executable name> --ros-args --params-file <file name>
+```
+```bash
+ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml --remap __node:=param_load
+```
+
+<p align="center">
+<img src="./img/param_load_startup_terminal.png" style="width: 500;"></img>
+<img src="./img/param_load_startup_turtlesim.png" style="width: 300;"></img>
+</p>
+
+### Summary
+1. Nodes have parameters to define their default configuration values.
+2. You can get and set parameter values from the command line.
+3. You can also save the parameter settings to a file to reload them in a future session.
+
 ## ✅ Actions
 <img src="./img/Action-SingleActionClient.gif"></img>
 
