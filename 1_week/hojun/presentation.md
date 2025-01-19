@@ -412,6 +412,109 @@ ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml --rema
 ## ✅ Actions
 <img src="./img/Action-SingleActionClient.gif"></img>
 
+### 1. user actions
+
+<p align="center">
+<img src="./img/user_action.png" style="width: 500;"></img>
+</p>
+
+- G: 터틀봇의 방향을 0도(오른쪽)로 설정합니다.
+- B: 터틀봇의 방향을 180도(왼쪽)로 설정합니다.
+- V: 터틀봇의 방향을 90도(위쪽)로 설정합니다.
+- C: 터틀봇의 방향을 270도(아래쪽)로 설정합니다.
+- D: 터틀봇의 방향을 45도(대각선 위 오른쪽)로 설정합니다.
+- E: 터틀봇의 방향을 135도(대각선 위 왼쪽)로 설정합니다.
+- R: 터틀봇의 방향을 225도(대각선 아래 왼쪽)로 설정합니다.
+- T: 터틀봇의 방향을 315도(대각선 아래 오른쪽)로 설정합니다.
+- F: 현재 설정된 회전을 취소할 수 있습니다.
+- Q: 프로그램이 종료됩니다.
+
+### 2. node info
+```bash
+ros2 node info /turtlesim
+ros2 node info /teleop_turtle
+```
+
+<p align="center">
+<img src="./img/action_node_info_turtlesim.png" style="width: 500;"></img>
+<img src="./img/action_node_info_teleop_turtle.png" style="width: 500;"></img>
+</p>
+
+- Action **Servers** : /turtlesim
+- Action **Clients** : /teleop_turtle
+
+### 3. action list
+```bash
+ros2 action list
+```
+
+<p align="center">
+<img src="./img/action_list.png" style="width: 500;"></img>
+</p>
+
+#### 3.1 action list -t
+```bash
+ros2 action list -t
+```
+
+<p align="center">
+<img src="./img/action_list_t.png" style="width: 500;"></img>
+</p>
+
+### 4. action info
+```bash
+ros2 action info <action name>
+```
+```bash
+ros2 action info /turtle1/rotate_absolute
+```
+
+<p align="center">
+<img src="./img/action_info.png" style="width: 500;"></img>
+</p>
+
+### 5. interface show
+```bash
+ros2 interface show <action type>
+```
+```bash
+ros2 interface show turtlesim/action/RotateAbsolute
+```
+
+<p align="center">
+<img src="./img/action_interface_show.png" style="width: 500;"></img>
+</p>
+
+### 6. action sned_goal
+```bash
+ros2 action send_goal <action name> <action type> <values>
+```
+```bash
+ros2 action send_goal /turtle1/rotate_absolute \
+turtlesim/action/RotateAbsolute \
+"{theta: 1.57}"
+```
+
+<p align="center">
+<img src="./img/action_send_goal.png" style="width: 500;"></img>
+</p>
+
+#### 6.1 action send_goal --feedback
+```bash
+ros2 action send_goal /turtle1/rotate_absolute \
+turtlesim/action/RotateAbsolute \
+"{theta: -1.57}" --feedback
+```
+
+<p align="center">
+<img src="./img/action_send_goal_feedback_1.png" style="width: 500;"></img>
+<img src="./img/action_send_goal_feedback_2.png" style="width: 500;"></img>
+</p>
+
+### Summary
+1. Actions are like services that allow you to execute long running tasks, provide regular feedback, and are cancelable.
+2. A robot system would likely use actions for navigation. An action goal could tell a robot to travel to a position. While the robot navigates to the position, it can send updates along the way (i.e. feedback), and then a final result message once it’s reached its destination.
+
 ## ✅ Colcon
 > Concept of Libraries for Compilers Installation
 
