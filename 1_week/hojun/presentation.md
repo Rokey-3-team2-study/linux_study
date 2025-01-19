@@ -26,7 +26,9 @@ ros2 run <package name> <executable name>
 ros2 run turtlesim turtlesim_node
 ```
 
-<img src="./img/turtlesim.png" style="width: 300; margin: 0 auto; display: block;"></img>
+<p align="center">
+    <img src="./img/turtlesim.png" style="width: 300;"></img>
+</p>
 
 ### 2. node list
 ```bash
