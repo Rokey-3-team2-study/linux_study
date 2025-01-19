@@ -34,26 +34,31 @@ ros2 run turtlesim turtlesim_node
 ```bash
 ros2 node list
 ```
-
-<img src="./img/turtlesim_terminal.png" style="width: 500; margin: 0 auto; display: block;"></img>
-<img src="./img/turtle_teleop_key_terminal.png" style="width: 500; margin: 0 auto; display: block;"></img>
-<img src="./img/node_list.png" style="width: 500; margin: 0 auto; display: block;"></img>
+<p align="center">
+<img src="./img/turtlesim_terminal.png" style="width: 500;"></img>
+<img src="./img/turtle_teleop_key_terminal.png" style="width: 500;"></img>
+<img src="./img/node_list.png" style="width: 500;"></img>
+</p>
 
 #### 2.1 remapping
 ```bash
 ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 ```
 
-<img src="./img/turtlesim_remapping_terminal.png" style="width: 500; margin: 0 auto; display: block;"></img>
-<img src="./img/turtlesim_remapping.png" style="width: 300; margin: 0 auto; display: block;"></img>
-<img src="./img/node_list_remapping.png" style="width: 500; margin: 0 auto; display: block;"></img>
+<p align="center">
+<img src="./img/turtlesim_remapping_terminal.png" style="width: 500;"></img>
+<img src="./img/turtlesim_remapping.png" style="width: 300;"></img>
+<img src="./img/node_list_remapping.png" style="width: 500;"></img>
+</p>
 
 ### 3. node info
 ```bash
 ros2 node info /my_turtle
 ```
 
-<img src="./img/node_info.png" style="width: 500; margin: 0 auto; display: block;"></img>
+<p align="center">
+<img src="./img/node_info.png" style="width: 500;"></img>
+</p>
 
 ### Summary
 1. node is a fundamental ROS 2 element that serves a single, modular purpose in a robotics system.
