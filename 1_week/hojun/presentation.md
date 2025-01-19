@@ -209,8 +209,6 @@ ros2 topic find <topic_type>
 ```
 ```bash
 ros2 topic find geometry_msgs/msg/Twist
-```
-```bash
 ros2 topic find turtlesim/msg/Pose
 ```
 
@@ -219,10 +217,111 @@ ros2 topic find turtlesim/msg/Pose
 </p>
 
 ### Summary
-
+1. Nodes publish information over topics, which allows any number of other nodes to subscribe to and access that information.
+2. We learned connection between sevral nodes over topics using rqt_graph
 
 ## ✅ Services
 <img src="./img/Service-MultipleServiceClient.gif"></img>
+
+### 1. service list
+```bash
+ros2 service list
+```
+
+<p align="center">
+<img src="./img/service_list_terminal.png" style="width: 500;"></img>
+</p>
+
+### 2. service type
+```bash
+ros2 service type <service name>
+```
+```bash
+ros2 service type /clear
+```
+
+<p align="center">
+<img src="./img/service_type.png" style="width: 500;"></img>
+</p>
+
+#### 2.1 service list -t
+```bash
+ros2 service list -t
+```
+
+<p align="center">
+<img src="./img/service_list_t.png" style="width: 500;"></img>
+</p>
+
+### 3. service find
+```bash
+ros2 service find <type name>
+```
+```bash
+ros2 service find std_srvs/srv/Empty
+```
+
+<p align="center">
+<img src="./img/service_find.png" style="width: 500;"></img>
+</p>
+
+### 4. interface show
+```bash
+ros2 interface show <type_name>
+```
+```bash
+ros2 interface show std_srvs/srv/Empty
+ros2 interface show turtlesim/srv/Spawn
+```
+
+<p align="center">
+<img src="./img/service_interface.png" style="width: 500;"></img>
+</p>
+
+### 5. service call
+```bash
+ros2 service call <service name> <service type> <arguments>
+```
+
+- arguments is optional
+
+```bash
+ros2 service call /clear std_srvs/srv/Empty
+```
+
+<p align="center">
+<img src="./img/service_call_turtlesim_b.png" style="width: 300;"></img>
+<img src="./img/service_call_clear.png" style="width: 500;"></img>
+<img src="./img/service_call_turtlesim_A.png" style="width: 300;"></img>
+</p>
+
+```bash
+ros2 service call /spawn turtlesim/srv/Spawn \
+"{x: 2, y: 2, theta: 0.2, name: ''}"
+```
+
+<p align="center">
+<img src="./img/service_call_spawn_b.png" style="width: 300;"></img>
+<img src="./img/service_call_spawn_terminal.png" style="width: 500;"></img>
+<img src="./img/service_call_spawn_a.png" style="width: 300;"></img>
+</p>
+
+### 6. service echo
+```bash
+ros2 service echo <service_name | service_type> <arguments>
+```
+```bash
+ros2 service echo <service_name | service_type> <arguments>
+```
+
+<p align="center">
+<img src="./img" style="width: 500;"></img>
+</p>
+
+### Summary
+1. a
+2. b
+3. c
 
 ## ✅ Parameters
 
