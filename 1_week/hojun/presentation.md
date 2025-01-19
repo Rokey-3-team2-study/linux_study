@@ -518,45 +518,44 @@ turtlesim/action/RotateAbsolute \
 ## ✅ Colcon
 > Concept of Libraries for Compilers Installation
 
-### Install colcon
+### 1. Install colcon
 ```bash
 sudo apt install python3-colcon-common-extensions
 ```
 
-### Basic
-#### 1. Create a workspace
+### 2. Create a workspace
 ```bash
 mkdir <root directory name>/src
 cd <root directory name>
 ```
 
-#### 2. Add some sources
+### 3. Add some sources
 ```bash
 git clone https://github.com/ros2/examples src/examples -b humble
 ```
 
-#### 3. Source an underlay
+### 4. Source an underlay
 - source an underlay: 우리가 ROS2를 설치했을 때 ROS2의 기본 작업환경을 .bashrc 파일에 "source /opt/ros/humble/setup.bash" 형태로 source했던 것을 일반적으로 "underlay를 source했다"고 한다.
 - source an overlay: ROS2의 기본 작업 환경을 source했으면 우리 개인이 만드는 (상대적으로 작은 규모의) 작업환경을 source하는 것을 "overlay를 source 한다"라고 표현한다.
 
 이렇게 작업환경들을 source하는 이유는 서로 의존성이 있을 수 있는 파일들에게 "야 너가 지금 쓰려고 하는거 저기 다른 작업환경에 있어"라는 식으로 알려줄 수 있기 때문이다.
 
-#### 4. Build the workspace
+### 5. Build the workspace
 ```bash
 colcon build --symlink-install
 ```
 
-#### 5. Run tests
+### 6. Run tests
 ```bash
 colcon test
 ```
 
-#### 6. Sources the environment
+### 7. Sources the environment
 ```bash
 source install/setup.bash
 ```
 
-#### 7. Try a demo
+### 8. Try a demo
 ```bash
 ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
 ros2 run examples_rclcpp_minimal_publisher publisher_member_function
@@ -567,4 +566,48 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 <img src="./img/demo_subscriber.png"></img>
 </p>
 
-## Create your own package
+## ✅ Workspace
+
+### 1. Make new directory
+```bash
+mkdir ros_ws2/src
+cd ros_ws2/src
+```
+
+### 2. Copy sample repository
+```bash
+git clone https://github.com/ros/ros_tutorials.git -b humble
+```
+### 3. Check dependency
+```bash
+cd ..
+rosdep install -i --from-path src --rosdistro humble -y
+```
+
+> if rosdep install -i --from-path src --rosdistro humble -y
+```bash
+sudo rosdep init
+rosdep update
+```
+
+### 4. Build workspace by colon
+```bash
+colcon build
+```
+
+### 5. Overlay
+> In new terminal
+```bash
+cd ros_ws2
+source /opt/ros/humble/setup.bash
+source install/local_setup.bash
+ros2 run turtlesim turtlesim_node
+```
+> if qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in "",
+```bash
+sudo apt install qtwayland5
+```
+> if QSocketNotifier: Can only be used with threads started with QThread
+```bash
+
+```
