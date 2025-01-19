@@ -1,4 +1,2 @@
-src/
-log/
-install/
-build/
+ros_ws1/
+ros_ws2/
