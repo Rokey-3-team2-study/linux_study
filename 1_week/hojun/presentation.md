@@ -569,7 +569,9 @@ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 ## ✅ Workspace
 
 ### 1. Make new directory
+In build terminal
 ```bash
+source /opt/ros/humble/setup.bash
 mkdir ros_ws2/src
 cd ros_ws2/src
 ```
@@ -584,7 +586,7 @@ cd ..
 rosdep install -i --from-path src --rosdistro humble -y
 ```
 
-> if rosdep install -i --from-path src --rosdistro humble -y
+> rosdep install -i --from-path src --rosdistro humble -y
 ```bash
 sudo rosdep init
 rosdep update
@@ -596,18 +598,33 @@ colcon build
 ```
 
 ### 5. Overlay
-> In new terminal
+In new terminal = overlay terminal
 ```bash
 cd ros_ws2
-source /opt/ros/humble/setup.bash
-source install/local_setup.bash
+source /opt/ros/humble/setup.bash   # underlay source
+source install/local_setup.bash     # overlay source
 ros2 run turtlesim turtlesim_node
 ```
-> if qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in "",
+> qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in "",
 ```bash
-sudo apt install qtwayland5
+export QT_QPA_PLATFORM=xcb
 ```
-> if QSocketNotifier: Can only be used with threads started with QThread
-```bash
+> symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
 
+Try it in terminal. <U>**Not in VSC terminal**</U>
+
+### 6. Modify Overlay
+```bash
+cd ~/ros_ws2/src/ros_tutorials/turtlesim/src
+```
+52 line in turtle_frame.cpp : TurtleSim -> MyTurtleSim
+
+In build terminal
+```bash
+colcon build
+```
+
+In overlay terminal
+```bash
+ros2 run turtlesim turtlesim_node
 ```
