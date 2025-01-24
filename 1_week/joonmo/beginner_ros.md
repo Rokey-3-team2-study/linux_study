@@ -44,14 +44,14 @@ $ ros2 topic type /turtle1/pose
 #------------------------------
 turtlesim/msg/Pose
 
-# publish & subscribe 구분해서 보기
+# publish & subscribe 구분해서 보기 (service는 지원이 안됨.)
 $ ros2 topic info /turtle1/pose
 #------------------------------
 Type: turtlesim/msg/Pose
 Publisher count: 1
 Subscription count: 0
 
-# name + message type + info 한꺼번에 확인
+# name + message type + info 한꺼번에 확인 (topic만 지원됨.)
 $ ros2 topic list -v
 #--------------------
 Published topics:
@@ -102,6 +102,33 @@ $ ros2 topic list -t
 /turtle2/cmd_vel [geometry_msgs/msg/Twist]
 /turtle2/color_sensor [turtlesim/msg/Color]
 /turtle2/pose [turtlesim/msg/Pose]
+
+# 명령어 기억이 안날때
+$ ros2 topic -h
+#---------------
+usage: ros2 topic [-h] [--include-hidden-topics]
+                  Call `ros2 topic <command> -h` for more detailed usage. ...
+
+Various topic related sub-commands
+
+options:
+  -h, --help            show this help message and exit
+  --include-hidden-topics
+                        Consider hidden topics as well
+
+Commands:
+  bw     Display bandwidth used by topic
+  delay  Display delay of topic from timestamp in header
+  echo   Output messages from a topic
+  find   Output a list of available topics of a given type
+  hz     Print the average publishing rate to screen
+  info   Print information about a topic
+  list   Output a list of available topics
+  pub    Publish a message to a topic
+  type   Print a topic's type
+
+  Call `ros2 topic <command> -h` for more detailed usage.
+
 ```
 
 #### - topic pub
