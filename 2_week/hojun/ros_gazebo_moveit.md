@@ -6,7 +6,7 @@
 2. [Gazebo](#-gazebo)
 3. [RViz](#-rviz)
 4. [MoveIt](#-moveit)
-
+5. [Integrate](#-integrate)
 
 ## ✅ ROS 2
 
@@ -69,3 +69,5 @@
     - [Step 2: Play with the Visualized Robots](https://moveit.picknik.ai/main/doc/tutorials/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-2-play-with-the-visualized-robots)
     - [Step 3: Interact with the Kinova Gen 3](https://moveit.picknik.ai/main/doc/tutorials/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-3-interact-with-the-kinova-gen-3)
     - [Step 4: Use Motion Planning with the Kinova Gen 3](https://moveit.picknik.ai/main/doc/tutorials/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-4-use-motion-planning-with-the-kinova-gen-3)
+
+## ✅ Integrate
